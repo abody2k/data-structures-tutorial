@@ -1,26 +1,32 @@
 package tutorial;
 
-
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 public class Tutorial {
 
 	public static void main(String[] args) {
 
-		Structure y = new Structure();
-
-		StructureFunctions x = new Structure();
-		x.doSomething();
-		x.drawSomething();
-		y.doSomething();
-		y.drawSomething();
-		y.eatSomething();
-		/*
-		 * I just figured out the difference between an implementation of interface and a class
-		 * an interface can't be instantiated but we can make a instance of it if we have a class that implements it
-		 * that's why the x can do all the functions of the Structurefunctions interface but can't do the eat which is
-		 * a part of the Structure class itself
-		 * while using the Structure class as the type of the variable y allowed it to call the Methods including the
-		 * eat
-		 */
+		List<String> alist = new ArrayList<>();
+		alist.add("apple");
+		alist.add("Banana");
+		alist.add("Monkey");
+		alist.forEach(System.out::println);
+		for(Object x : alist) {
+			
+			System.out.println(x);
+		}
+		int i=3;
+		for (Iterator<?> it = alist.iterator() ;it.hasNext();) {
+			
+System.out.println(it.next());
+			it.remove();
+			i--;
+			if(!(it.hasNext())) {
+				break;
+			}
+			
+		}
 	}
 
 }
