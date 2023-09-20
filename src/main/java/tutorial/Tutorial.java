@@ -22,12 +22,19 @@ public class Tutorial {
 		hashSet.add("b");
 		hashSet.add("a");
 		hashSet.add("c");
+		
 		treeSet.add("b");
-		treeSet.add("a");
-		treeSet.add("c");
-		linkedHashSet.add("b");
-		linkedHashSet.add("a");
+		treeSet.add("d");
+		treeSet.add("k");
+		
+		linkedHashSet.add("s");
+		linkedHashSet.add("z");
 		linkedHashSet.add("c");
+		
+		hashSet.retainAll(linkedHashSet);
+		treeSet.addAll(linkedHashSet);
+		linkedHashSet.removeAll(treeSet);
+		
 		hashSet.forEach(System.out::println);
 		treeSet.forEach(System.out::println);
 		linkedHashSet.forEach(System.out::println);
