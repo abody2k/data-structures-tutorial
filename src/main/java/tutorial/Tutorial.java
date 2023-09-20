@@ -1,32 +1,37 @@
 package tutorial;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+
+import java.util.Set;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.TreeSet;
+/**
+ * Implementing all the types of Sets
+ * While hash set is the best it lacks order, Tree set order elements based on their value
+ * finally LinkedHashSet uses a linked list which sorts the elements on their addition to the list order
+ * 
+ */
 public class Tutorial {
 
 	public static void main(String[] args) {
 
-		List<String> alist = new ArrayList<>();
-		alist.add("apple");
-		alist.add("Banana");
-		alist.add("Monkey");
-		alist.forEach(System.out::println);
-		for(Object x : alist) {
-			
-			System.out.println(x);
-		}
-		int i=3;
-		for (Iterator<?> it = alist.iterator() ;it.hasNext();) {
-			
-System.out.println(it.next());
-			it.remove();
-			i--;
-			if(!(it.hasNext())) {
-				break;
-			}
-			
-		}
+		Set<String> hashSet = new HashSet<>();
+		Set<String> treeSet = new TreeSet<>();
+		Set<String>linkedHashSet= new LinkedHashSet<>();
+		
+		hashSet.add("b");
+		hashSet.add("a");
+		hashSet.add("c");
+		treeSet.add("b");
+		treeSet.add("a");
+		treeSet.add("c");
+		linkedHashSet.add("b");
+		linkedHashSet.add("a");
+		linkedHashSet.add("c");
+		hashSet.forEach(System.out::println);
+		treeSet.forEach(System.out::println);
+		linkedHashSet.forEach(System.out::println);
+
 	}
 
 }
