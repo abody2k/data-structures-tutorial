@@ -1,11 +1,10 @@
 package tutorial;
 
 
-import java.util.List;
-import java.util.ListIterator;
-import java.util.stream.Collectors;
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Queue;
+import java.util.PriorityQueue;
+import java.util.Arrays;
+import java.util.Iterator;
 import java.util.LinkedList;
 
 
@@ -13,27 +12,29 @@ public class Tutorial {
 
 	public static void main(String[] args) {
 
-		List<String> a = new ArrayList<>();
-		List<String> b= new LinkedList<>();
-		a.add("hola");
-		a.add("world");
-		b.add("hola");
-		b.add("world");
-		a.add(0,"inserted");
-		a.add(0, "inserted at 0");
-		Collections.shuffle(a);
-		System.out.println(a.stream().collect(Collectors.counting()));
-		Collections.sort(a);
-		Collections.rotate(a, 5);
-		Collections.reverse(a);
-		
+		Queue<Integer> a = new PriorityQueue<>();
+		Queue<Double> b = new LinkedList<>();
+		a.addAll(Arrays.asList(3,1,2,4,66,-200));
+		b.addAll(Arrays.asList(1.0,2.0,3.0,4.0,4.4,-2.00));
 		a.forEach(System.out::println);
+		b.forEach(System.out::println);
 		
-		for(ListIterator<?> it = a.listIterator(0);it.hasNext();) {
-			System.out.println(it.previousIndex()+1);
-			it.next();
+		for(Iterator<?> it = a.iterator();it.hasNext();) {
 			
+			
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.out.println("Just finished sleeping");
+			it.next();
+
+			it.remove();
 		}
+
+	
 		
 
 	}
